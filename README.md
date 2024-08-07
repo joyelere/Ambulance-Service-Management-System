@@ -141,3 +141,7 @@ To test the endpoints, you can use Postman with the appropriate HTTP methods and
 ## Summary
 
 This project demonstrates the use of Java Spring Boot for building a comprehensive backend application for managing ambulance services. It showcases best practices in Java development, including the use of JPA for database interactions, Spring Security for securing the application, and proper exception handling for a seamless user experience.
+
+## Video Presentation
+
+https://drive.google.com/file/d/1Zfu4E2L3DGHEkjpE9Ha8qnkw4CJlwoqL/view?usp=sharing
