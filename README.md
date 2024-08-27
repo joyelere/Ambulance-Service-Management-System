@@ -86,7 +86,6 @@ The system uses **Spring Security** to manage authentication and authorization.
 #### 1. Request Ambulance
 
 - **Endpoint**: `POST /users/ambulance/request/{ambulanceId}`
--
 - **Authentication**: Include `JSESSIONID` cookie.
 
 #### 2. Update Ambulance Request
@@ -317,5 +316,5 @@ The system uses **Spring Security** to manage authentication and authorization.
 
 For a detailed walkthrough of the project, including code explanations and functionality demonstrations, please watch the video presentation:
 
-[Watch the Video Presentation](#) <!-- https://drive.google.com/file/d/1Zfu4E2L3DGHEkjpE9Ha8qnkw4CJlwoqL/view?usp=sharing -->
+[Watch the Video Presentation](https://drive.google.com/file/d/1Zfu4E2L3DGHEkjpE9Ha8qnkw4CJlwoqL/view?usp=sharing)
 
