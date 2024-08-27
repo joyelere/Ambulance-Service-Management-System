@@ -248,7 +248,7 @@ The system uses **Spring Security** to manage authentication and authorization.
 
 #### 2. Authenticate User
 
-- **Endpoint**: `POST /users/login`
+- **Endpoint**: `POST /auth/login`
 - **Request Body**:
     ```json
     {
@@ -277,14 +277,8 @@ The system uses **Spring Security** to manage authentication and authorization.
 
 #### 4. Logout User
 
-- **Endpoint**: `POST /users/logout`
+- **Endpoint**: `POST /auth/logout`
 - **Description**: Logs out the user by invalidating the session and clearing the `JSESSIONID` cookie.
-- **Response**:
-    ```json
-    {
-        "message": "Logout successful"
-    }
-    ```
 
 ## Testing with Postman
 
@@ -318,9 +312,10 @@ The system uses **Spring Security** to manage authentication and authorization.
 
 3. **Access**: Navigate to `http://localhost:8080` in your web browser or Postman to interact with the API.
 
+
 ## Video Presentation
 
 For a detailed walkthrough of the project, including code explanations and functionality demonstrations, please watch the video presentation:
 
-[Watch the Video Presentation](#) <!-- Replace # with the actual video link -->
+[Watch the Video Presentation](#) <!-- https://drive.google.com/file/d/1Zfu4E2L3DGHEkjpE9Ha8qnkw4CJlwoqL/view?usp=sharing -->
 
