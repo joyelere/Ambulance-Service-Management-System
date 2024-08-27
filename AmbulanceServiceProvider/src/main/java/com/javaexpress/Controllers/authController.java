@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.javaexpress.Models.User;
 import com.javaexpress.Services.userService;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -64,5 +65,23 @@ public class authController {
 	}
 
 	public record LoginRequest(String username, String password) {
+	}
+
+	@PostMapping("/logout")
+	public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession(false); // Get the session if it exists
+		if (session != null) {
+			session.invalidate(); // Invalidate the session to log the user out
+		}
+
+		SecurityContextHolder.clearContext();
+
+		Cookie cookie = new Cookie("JSESSIONID", null);
+		cookie.setHttpOnly(true);
+		cookie.setMaxAge(0);
+		cookie.setPath(request.getContextPath() + "/");
+		response.addCookie(cookie);
+
+		return ResponseEntity.ok().build(); // Return an appropriate response
 	}
 }

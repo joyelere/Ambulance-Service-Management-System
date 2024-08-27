@@ -18,6 +18,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 
 import com.javaexpress.Security.CustomUserDetailsService;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -27,13 +29,18 @@ public class securityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(authorizeRequests -> authorizeRequests.requestMatchers("/auth/**").permitAll()
-	                    .requestMatchers(HttpMethod.POST, "/users/ambulance/request/**").hasAuthority("USER")
-	                    .requestMatchers(HttpMethod.GET, "/users/ambulance/request/**").hasAnyAuthority("USER","ADMIN")
-	                    .requestMatchers(HttpMethod.PUT, "/users/ambulance/request/**").hasAuthority("ADMIN")
+						.requestMatchers(HttpMethod.POST, "/users/ambulance/request/**").hasAuthority("USER")
+						.requestMatchers(HttpMethod.GET, "/users/ambulance/request/**").hasAnyAuthority("USER", "ADMIN")
+						.requestMatchers(HttpMethod.PUT, "/users/ambulance/request/**").hasAuthority("ADMIN")
 						.requestMatchers("/users/ambulance").hasAnyAuthority("ADMIN", "USER")
 						.requestMatchers("/admin/**", "/users/**").hasAuthority("ADMIN").anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
 						.sessionFixation().none())
+				.logout(logout -> logout.logoutUrl("/auth/logout")
+						.logoutSuccessHandler((request, response, authentication) -> {
+							// Handle logout success without redirecting
+							response.setStatus(HttpServletResponse.SC_OK);
+						}).invalidateHttpSession(true).deleteCookies("JSESSIONID"))
 				.build();
 	}
 
