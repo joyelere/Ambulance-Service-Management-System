@@ -234,7 +234,7 @@ The system uses **Spring Security** to manage authentication and authorization.
 
 #### 1. Register User
 
-- **Endpoint**: `POST /users/register`
+- **Endpoint**: `POST /auth/register`
 - **Request Body**:
     ```json
     {
@@ -259,7 +259,7 @@ The system uses **Spring Security** to manage authentication and authorization.
 
 #### 3. Get users by userType
 
-- **Endpoint**: `GET /users//type/{userType}`
+- **Endpoint**: `GET /users/type/{userType}`
 - **Response**:
     ```json
     [
