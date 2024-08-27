@@ -71,7 +71,7 @@ public class authController {
 	public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession(false); // Get the session if it exists
 		if (session != null) {
-			session.invalidate(); // Invalidate the session to log the user out.
+			session.invalidate(); // Invalidate the session to log the user out
 		}
 
 		SecurityContextHolder.clearContext();
@@ -82,6 +82,6 @@ public class authController {
 		cookie.setPath(request.getContextPath() + "/");
 		response.addCookie(cookie);
 
-		return ResponseEntity.ok().build(); // Return an appropriate response.
+		return ResponseEntity.ok().build(); // Return an appropriate response
 	}
 }

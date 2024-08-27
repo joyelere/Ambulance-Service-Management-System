@@ -38,7 +38,7 @@ public class securityConfig {
 						.sessionFixation().none())
 				.logout(logout -> logout.logoutUrl("/auth/logout")
 						.logoutSuccessHandler((request, response, authentication) -> {
-							// Handle logout success without redirecting.
+							// Handle logout success without redirecting
 							response.setStatus(HttpServletResponse.SC_OK);
 						}).invalidateHttpSession(true).deleteCookies("JSESSIONID"))
 				.build();
